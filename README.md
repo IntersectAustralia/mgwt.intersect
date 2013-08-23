@@ -14,7 +14,7 @@ Step by step:
 ------------
 
 1. Clone the project
-2. Go into the project forlder and run the followings commands
+2. Go into the project forlder and run the followings commands   
 	mvn eclipse:eclipse   
 	mvn war:exploded   
 	mvn clean package   
