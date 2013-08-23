@@ -1,0 +1,8 @@
+.classpath
+.project
+.settings/
+target/
+extras/
+.gwt/
+.gwt-log/
+mgwt-showcase.iml
