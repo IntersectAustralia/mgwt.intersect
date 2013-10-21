@@ -1,0 +1,38 @@
+[
+	{
+		"experiment_no": 1,
+		"name": "Experiment 1",
+		"bk-image": "intersectLogo.gif",
+		"fg-image": "mj.jpeg",
+		"top": 20,
+		"left": 20,
+		"delay_in_milliseconds": 2000
+	},
+	{
+		"experiment_no": 2,
+		"name": "Experiment 2",
+		"bk-image": "intersectLogo.gif",
+		"fg-image": "icon-blackBerryTravel.png",
+		"top": 60,
+		"left": 60,
+		"delay_in_milliseconds": 5000
+	},
+	{
+		"experiment_no": 3,
+		"name": "Experiment 3",
+		"bk-image": "intersectLogo.gif",
+		"fg-image": "mj.jpeg",
+		"top": 120,
+		"left": 120,
+		"delay_in_milliseconds": 10000
+	},
+	{
+		"experiment_no": 4,
+		"name": "Experiment 4",
+		"bk-image": "intersectLogo.gif",
+		"fg-image": "icon-blackBerryTravel.png",
+		"top": 400,
+		"left": 200,
+		"delay_in_milliseconds": 8000
+	}	
+]
