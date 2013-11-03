@@ -78,12 +78,25 @@ public class IntersectEntryPoint implements EntryPoint {
 
 				public void onResponseReceived(Request request, Response response) {
 					String configString = response.getText();
-					JSONValue jsonValue = JSONParser.parseStrict(configString);
-
-					Map<Integer, Experiment> experimentsMap = buildExperiments(jsonValue.isArray());
-					
-					setUpMGWT();
-					showExperimentSelectionScreen(experimentsMap);
+					try {
+						JSONValue jsonValue = JSONParser.parseStrict(configString);
+						
+						Map<Integer, Experiment> experimentsMap = buildExperiments(jsonValue.isArray());
+						
+						setUpMGWT();
+						showExperimentSelectionScreen(experimentsMap);
+					} catch (Exception e) {
+						VerticalPanel errorPanel = new VerticalPanel();
+						errorPanel.setStyleName("errorPanel");
+						Label errorText = new Label("ERROR:");
+						errorText.setStyleName("errorText");
+						Label errorMessage = new Label(" Error starting application. Please verify the configuration file.");
+						errorMessage.setStyleName("errorMessage");
+						errorPanel.add(errorText);
+						errorPanel.add(errorMessage);
+						
+						RootPanel.get().add(errorPanel);
+					}
 				}
 			});
 		} catch (RequestException e) {
@@ -165,8 +178,11 @@ public class IntersectEntryPoint implements EntryPoint {
 				experiment.setLeft((int) jsLeft.doubleValue());
 				experiment.setDelay((int) jsDelay.doubleValue());
 				
-				experimentsMap.put(experiment.getId(), experiment);
-
+				if (!experimentsMap.containsKey(experiment.getId())) {
+					experimentsMap.put(experiment.getId(), experiment);					
+				} else {
+					Window.alert("ERROR:\n\nExperiment number " + experiment.getId() + " already exists. \nExperiment number must be unique, please verify the configuration file.");
+				}
 			}
 
 		}
